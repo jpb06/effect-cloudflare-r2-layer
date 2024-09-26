@@ -2,10 +2,11 @@ import { HttpClientError } from '@effect/platform/HttpClientError';
 import type { ConfigError, Effect } from 'effect';
 import { Context } from 'effect';
 
+import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
 import { HttpClient } from '@effect/platform';
 import { Scope } from 'effect/Scope';
 import type { FileStorageError } from '../errors/file-storage.error.js';
-import type { UploadFileInput } from '../r2/implementations/upload-file.effect.js';
+import type { UploadFileInput } from '../r2/implementations/index.js';
 import { tapLayer } from './../effects/tapLayer.effect.js';
 
 export interface FileStorage {
@@ -40,9 +41,16 @@ export interface FileStorage {
     ConfigError.ConfigError | HttpClientError | FileStorageError,
     Scope | HttpClient.HttpClient.Service
   >;
-  readonly uploadFile: <TBucket extends string>(
-    input: UploadFileInput<TBucket>,
-  ) => Effect.Effect<void, FileStorageError | ConfigError.ConfigError>;
+  readonly uploadFile: <TBucket extends string>({
+    bucketName,
+    documentKey,
+    data,
+    contentType,
+  }: UploadFileInput<TBucket>) => Effect.Effect<
+    PutObjectCommandOutput,
+    ConfigError.ConfigError | FileStorageError,
+    never
+  >;
 }
 
 export const FileStorageLayerContext =
