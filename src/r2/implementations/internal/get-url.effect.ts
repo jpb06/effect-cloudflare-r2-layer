@@ -3,7 +3,7 @@ import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl as awsGetSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { Effect } from 'effect';
 
-import { FileStorageError } from '../../errors/file-storage.error.js';
+import { FileStorageError } from '../../../errors/file-storage.error.js';
 
 const oneHourDuration = 60 * 60;
 

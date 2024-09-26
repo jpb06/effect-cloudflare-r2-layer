@@ -1,8 +1,6 @@
-import { HttpClient } from '@effect/platform';
-import { Effect } from 'effect';
+import { Effect, pipe } from 'effect';
 
-import { cloudflareR2StorageProvider } from '../providers/r2-file-storage.provider.js';
-import { getUrl } from './get-url.effect.js';
+import { fetchFile } from './internal/index.js';
 
 export const readAsJson = <
   TBucket extends string,
@@ -14,15 +12,9 @@ export const readAsJson = <
   Effect.withSpan('read-as-json', {
     attributes: { bucketName, documentKey },
   })(
-    Effect.gen(function* () {
-      const provider = yield* cloudflareR2StorageProvider;
-      const url = yield* getUrl(provider, bucketName, documentKey);
-
-      const client = yield* HttpClient.HttpClient;
-      const response = yield* client.get(url);
-
-      const json = yield* response.json;
-
-      return json as TShape;
-    }),
+    pipe(
+      fetchFile(bucketName, documentKey),
+      Effect.flatMap((response) => response.json),
+      Effect.map((json) => json as TShape),
+    ),
   );

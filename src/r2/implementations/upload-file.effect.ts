@@ -6,19 +6,19 @@ import { cloudflareR2StorageProvider } from '../providers/r2-file-storage.provid
 
 export interface UploadFileInput<TBucket extends string> {
   bucketName: TBucket;
-  key: string;
+  documentKey: string;
   data: Buffer;
   contentType: string | undefined;
 }
 
 export const uploadFile = <TBucket extends string>({
   bucketName,
-  key,
+  documentKey,
   data,
   contentType,
 }: UploadFileInput<TBucket>) =>
   Effect.withSpan('upload-file', {
-    attributes: { bucketName, key, contentType },
+    attributes: { bucketName, documentKey, contentType },
   })(
     pipe(
       cloudflareR2StorageProvider,
@@ -29,7 +29,7 @@ export const uploadFile = <TBucket extends string>({
               new PutObjectCommand({
                 Body: data,
                 ContentType: contentType as string,
-                Key: key,
+                Key: documentKey,
                 Bucket: bucketName,
               }),
             ),

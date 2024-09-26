@@ -1,7 +1,7 @@
 import { Effect, pipe } from 'effect';
 
 import { cloudflareR2StorageProvider } from '../providers/r2-file-storage.provider.js';
-import { getUrl } from './get-url.effect.js';
+import { getUrl } from './internal/get-url.effect.js';
 
 export const getFileUrl = <TBucket extends string>(
   bucketName: TBucket,

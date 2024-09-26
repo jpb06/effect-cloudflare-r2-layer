@@ -10,12 +10,42 @@ An effect layer to interact with Cloudware R2 storage service.
 
 ## ⚡ Quick start
 
+### 🔶 Install
+
 ```bash
 npm i effect-cloudflare-r2-layer
 # or
 pnpm i effect-cloudflare-r2-layer
 # or
 bun i effect-cloudflare-r2-layer
+```
+
+### 🔶 Use the layer
+
+```typescript
+import { FetchHttpClient } from '@effect/platform';
+import { Effect, Layer, pipe } from 'effect';
+import {
+  CloudflareR2StorageLayerLive,
+  FileStorageLayer,
+} from 'effect-cloudflare-r2-layer';
+
+const task = pipe(
+  FileStorageLayer.readAsText('my-bucket', 'some-file.txt'),
+  Effect.scoped,
+  Effect.provide(
+    Layer.mergeAll(CloudflareR2StorageLayerLive, FetchHttpClient.layer)
+  )
+);
+
+/* task is of type
+
+  Effect.Effect<
+    string, 
+    ConfigError | HttpClientError | FileStorageError, 
+    never
+  >
+*/
 ```
 
 ## ⚡ Env variables
@@ -30,6 +60,14 @@ R2_DOCUMENTS_SECRET_ACCESS_KEY=""
 
 ## ⚡ API
 
+| function                                          | description                                                                               |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| [`uploadFile`](./README.md#-uploadfile)           | Adds a file to the specified bucket                                                       |
+| [`getFileUrl`](./README.md#-getfileurl)           | Gets a pre-signed url to fetch a ressource by its `filename` from the specified `bucket`. |
+| [`readAsJson`](./README.md#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
+| [`readAsText`](./README.md#-readastext)           | Fetches a file as a string.                                                               |
+| [`readAsRawBinary`](./README.md#-readasrawbinary) | Fetches a file as raw binary (ArrayBuffer).                                               |
+
 ### 🔶 `uploadFile`
 
 Adds a file to the specified bucket.
@@ -42,12 +80,15 @@ interface UploadFileInput<TBucket extends string> {
   contentType: string | undefined;
 }
 
-type uploadFile = <TBucket extends string>(
-  input: UploadFileInput<TBucket>
-) => Effect.Effect<
-  void,
-  FileStorageError | ConfigError.ConfigError,
-  FileStorage
+type uploadFile = <TBucket extends string>({
+  bucketName,
+  documentKey,
+  data,
+  contentType,
+}: UploadFileInput<TBucket>) => Effect.Effect<
+  PutObjectCommandOutput,
+  FileStorageError | ConfigError,
+  never
 >;
 ```
 
@@ -74,7 +115,7 @@ const task = pipe(
 
     yield* FileStorageLayer.uploadFile<Buckets>({
       bucketName: 'assets',
-      key: fileName,
+      documentKey: fileName,
       data: fileData,
       contentType: 'image/jpeg',
     });
