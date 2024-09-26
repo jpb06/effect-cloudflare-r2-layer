@@ -8,6 +8,16 @@ An effect layer to interact with Cloudware R2 storage service.
 
 <!-- readme-package-icons end -->
 
+## ⚡ Quick start
+
+```bash
+npm i effect-cloudflare-r2-layer
+# or
+pnpm i effect-cloudflare-r2-layer
+# or
+bun i effect-cloudflare-r2-layer
+```
+
 ## ⚡ Env variables
 
 The layer requires the following env variables:
@@ -63,8 +73,8 @@ const task = pipe(
     });
 
     yield* FileStorageLayer.uploadFile<Buckets>({
-      key: fileName,
       bucketName: 'assets',
+      key: fileName,
       data: fileData,
       contentType: 'image/jpeg',
     });
