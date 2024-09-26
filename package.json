@@ -1,0 +1,64 @@
+{
+  "name": "effect-cloudflare-r2-layer",
+  "version": "1.0.0",
+  "author": "jpb06 <jp.bois.06@outlook.fr>",
+  "description": "An effect layer to interact with Cloudware R2 storage service",
+  "keywords": [
+    "effect"
+  ],
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": {
+        "default": "./cjs/index.js",
+        "types": "./dts/cjs/index.d.ts"
+      },
+      "import": {
+        "default": "./esm/index.js",
+        "types": "./dts/esm/index.d.ts"
+      }
+    }
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "update-deps": "bunx npm-check-updates --root --format group -i",
+    "copy-package": "copyfiles package.json ./dist/",
+    "copy-readme": "copyfiles README.md ./dist/",
+    "build": "del-cli ./dist && bun build-esm && bun build-cjs",
+    "build-esm": "tsc --project tsconfig.esm.json",
+    "build-cjs": "tsc --project tsconfig.cjs.json",
+    "postbuild-cjs": "echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
+    "postbuild-esm": "echo '{\"type\": \"module\"}' > dist/esm/package.json",
+    "postbuild": "bun run copy-package && bun run copy-readme",
+    "format": "biome format --write ./src",
+    "format-ci": "biome format ./src",
+    "lint": "biome lint ./src",
+    "type-check": "tsc --noEmit",
+    "sync-icons": "bun generateReadmeIcons -h 50"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.658.1",
+    "@aws-sdk/s3-request-presigner": "^3.658.1",
+    "@effect/platform": "^0.66.2",
+    "dotenv": "^16.4.5",
+    "effect": "^3.8.4",
+    "effect-errors": "^1.7.11"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@types/bun": "latest",
+    "@types/fs-extra": "^11.0.4",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "readme-package-icons": "^1.1.15",
+    "tsx": "^4.19.1"
+  }
+}
