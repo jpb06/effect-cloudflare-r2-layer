@@ -45,8 +45,7 @@
     "@aws-sdk/s3-request-presigner": "^3.658.1",
     "@effect/platform": "^0.66.2",
     "dotenv": "^16.4.5",
-    "effect": "^3.8.4",
-    "effect-errors": "^1.7.11"
+    "effect": "^3.8.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
