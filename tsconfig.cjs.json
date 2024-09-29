@@ -1,6 +1,10 @@
 {
 	"extends": "./tsconfig",
 	"compilerOptions": {
+		"plugins": [
+			{ "transform": "typescript-transform-paths" },
+			{ "transform": "typescript-transform-paths", "afterDeclarations": true }
+		],
 		"module": "CommonJS",
 		"moduleResolution": "Node",
 		"outDir": "dist/cjs",
