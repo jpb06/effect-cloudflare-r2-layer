@@ -112,12 +112,17 @@ const task = pipe(
 ### 🔶 `bucketInfos`
 
 ```typescript
+type BucketInfosInput<TBucket extends string> = {
+  Bucket: TBucket;
+  ExpectedBucketOwner?: string;
+};
+
 type BucketInfosResult = {
   region?: string;
 };
 
-type bucketInfos = (
-  input: HeadBucketCommandInput
+type bucketInfos = <TBucket extends string>(
+  input: BucketInfosInput<TBucket>
 ) => Effect.Effect<
   BucketInfosResult,
   ConfigError | FileStorageError | BucketNotFoundError,
@@ -134,9 +139,11 @@ import {
   FileStorageLayer,
 } from 'effect-cloudflare-r2-layer';
 
+type Buckets = 'assets' | 'config';
+
 const task = pipe(
   Effect.gen(function* () {
-    const result = yield* FileStorageLayer.bucketInfos({
+    const result = yield* FileStorageLayer.bucketInfos<Buckets>({
       Bucket: 'assets',
     });
 
