@@ -12,4 +12,6 @@ export type {
   PutObjectCommandOutput,
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
+  HeadBucketCommandInput,
 } from '@aws-sdk/client-s3';
+export type { BucketInfosResult } from './r2/implementations/bucket-infos.effect.js';

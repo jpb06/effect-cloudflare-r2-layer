@@ -1,8 +1,8 @@
 import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { Effect, pipe } from 'effect';
 
-import { FileStorageError } from '../../errors/file-storage.error.js';
-import { cloudflareR2StorageProvider } from '../providers/r2-file-storage.provider.js';
+import { FileStorageError } from '@errors';
+import { cloudflareR2StorageProvider } from '@provider';
 
 export interface UploadFileInput<TBucket extends string> {
   bucketName: TBucket;

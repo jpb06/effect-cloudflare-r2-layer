@@ -4,8 +4,8 @@ import {
 } from '@aws-sdk/client-s3';
 import { Effect, pipe } from 'effect';
 
-import { FileStorageError } from '../../errors/file-storage.error.js';
-import { cloudflareR2StorageProvider } from '../providers/r2-file-storage.provider.js';
+import { FileStorageError } from '@errors';
+import { cloudflareR2StorageProvider } from '@provider';
 
 export const createBucket = (input: CreateBucketCommandInput) =>
   Effect.withSpan('create-bucket', { attributes: { ...input } })(

@@ -5,13 +5,15 @@ import { Context } from 'effect';
 import {
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
+  HeadBucketCommandInput,
   PutObjectCommandOutput,
 } from '@aws-sdk/client-s3';
 import { HttpClient } from '@effect/platform';
 import { Scope } from 'effect/Scope';
-import type { FileStorageError } from '../errors/file-storage.error.js';
-import type { UploadFileInput } from '../r2/implementations/index.js';
-import { tapLayer } from './../effects/tapLayer.effect.js';
+
+import { tapLayer } from '@effects';
+import type { BucketNotFoundError, FileStorageError } from '@errors';
+import type { BucketInfosResult, UploadFileInput } from '@implementation';
 
 export interface FileStorage {
   readonly createBucket: (
@@ -19,6 +21,13 @@ export interface FileStorage {
   ) => Effect.Effect<
     CreateBucketCommandOutput,
     ConfigError.ConfigError | FileStorageError,
+    never
+  >;
+  readonly bucketInfos: (
+    input: HeadBucketCommandInput,
+  ) => Effect.Effect<
+    BucketInfosResult,
+    ConfigError.ConfigError | FileStorageError | BucketNotFoundError,
     never
   >;
   readonly getFileUrl: <TBucket extends string>(
@@ -72,6 +81,8 @@ export const FileStorageLayer = {
     tapLayer(FileStorageLayerContext, ({ createBucket }) =>
       createBucket(input),
     ),
+  bucketInfos: (input: HeadBucketCommandInput) =>
+    tapLayer(FileStorageLayerContext, ({ bucketInfos }) => bucketInfos(input)),
   getFileUrl: <TBucket extends string>(bucket: TBucket, fileName: string) =>
     tapLayer(FileStorageLayerContext, ({ getFileUrl }) =>
       getFileUrl(bucket, fileName),

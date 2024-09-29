@@ -1,7 +1,8 @@
 import { HttpClient } from '@effect/platform';
 import { Effect } from 'effect';
 
-import { cloudflareR2StorageProvider } from '../../providers/r2-file-storage.provider.js';
+import { cloudflareR2StorageProvider } from '@provider';
+
 import { getUrl } from './get-url.effect.js';
 
 export const fetchFile = (bucketName: string, documentKey: string) =>

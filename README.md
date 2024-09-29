@@ -63,6 +63,7 @@ R2_DOCUMENTS_SECRET_ACCESS_KEY=""
 | function                               | description                                                                               |
 | -------------------------------------- | ----------------------------------------------------------------------------------------- |
 | [`createBucket`](#-createbucket)       | Create a bucket                                                                           |
+| [`bucketInfos`](#-bucketinfos)         | Get bucket infos                                                                          |
 | [`uploadFile`](#-uploadfile)           | Adds a file to the specified bucket                                                       |
 | [`getFileUrl`](#-getfileurl)           | Gets a pre-signed url to fetch a ressource by its `filename` from the specified `bucket`. |
 | [`readAsJson`](#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
@@ -100,6 +101,43 @@ const task = pipe(
           DataRedundancy: 'SingleAvailabilityZone',
         },
       },
+    });
+
+    // ...
+  }),
+  Effect.provide(CloudflareR2StorageLayerLive)
+);
+```
+
+### 🔶 `bucketInfos`
+
+```typescript
+type BucketInfosResult = {
+  region?: string;
+};
+
+type bucketInfos = (
+  input: HeadBucketCommandInput
+) => Effect.Effect<
+  BucketInfosResult,
+  ConfigError | FileStorageError | BucketNotFoundError,
+  FileStorage
+>;
+```
+
+#### 🧿 Example
+
+```typescript
+import { Effect, pipe } from 'effect';
+import {
+  CloudflareR2StorageLayerLive,
+  FileStorageLayer,
+} from 'effect-cloudflare-r2-layer';
+
+const task = pipe(
+  Effect.gen(function* () {
+    const result = yield* FileStorageLayer.bucketInfos({
+      Bucket: 'assets',
     });
 
     // ...
