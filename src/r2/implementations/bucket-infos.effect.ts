@@ -1,4 +1,4 @@
-import { HeadBucketCommand, HeadBucketCommandInput } from '@aws-sdk/client-s3';
+import { HeadBucketCommand } from '@aws-sdk/client-s3';
 import { Effect, pipe } from 'effect';
 
 import { BucketNotFoundError, FileStorageError } from '@errors';
@@ -10,11 +10,18 @@ const hasName = (error: unknown): error is Required<MaybeWithName> => {
   return (error as MaybeWithName)?.name !== undefined;
 };
 
+export type BucketInfosInput<TBucket extends string> = {
+  Bucket: TBucket;
+  ExpectedBucketOwner?: string;
+};
+
 export type BucketInfosResult = {
   region: string | undefined;
 };
 
-export const bucketInfos = (input: HeadBucketCommandInput) =>
+export const bucketInfos = <TBucket extends string>(
+  input: BucketInfosInput<TBucket>,
+) =>
   Effect.withSpan('bucket-infos', { attributes: { ...input } })(
     pipe(
       cloudflareR2StorageProvider,
