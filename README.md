@@ -60,13 +60,53 @@ R2_DOCUMENTS_SECRET_ACCESS_KEY=""
 
 ## ⚡ API
 
-| function                                          | description                                                                               |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| [`uploadFile`](./README.md#-uploadfile)           | Adds a file to the specified bucket                                                       |
-| [`getFileUrl`](./README.md#-getfileurl)           | Gets a pre-signed url to fetch a ressource by its `filename` from the specified `bucket`. |
-| [`readAsJson`](./README.md#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
-| [`readAsText`](./README.md#-readastext)           | Fetches a file as a string.                                                               |
-| [`readAsRawBinary`](./README.md#-readasrawbinary) | Fetches a file as raw binary (ArrayBuffer).                                               |
+| function                               | description                                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------------------------- |
+| [`createBucket`](#-createbucket)       | Create a bucket                                                                           |
+| [`uploadFile`](#-uploadfile)           | Adds a file to the specified bucket                                                       |
+| [`getFileUrl`](#-getfileurl)           | Gets a pre-signed url to fetch a ressource by its `filename` from the specified `bucket`. |
+| [`readAsJson`](#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
+| [`readAsText`](#-readastext)           | Fetches a file as a string.                                                               |
+| [`readAsRawBinary`](#-readasrawbinary) | Fetches a file as raw binary (ArrayBuffer).                                               |
+
+### 🔶 `createBucket`
+
+```typescript
+type createBucket = (
+  input: CreateBucketCommandInput
+) => Effect.Effect<
+  CreateBucketCommandOutput,
+  FileStorageError | ConfigError.ConfigError,
+  FileStorage
+>;
+```
+
+#### 🧿 Example
+
+```typescript
+import { Effect, pipe } from 'effect';
+import {
+  CloudflareR2StorageLayerLive,
+  FileStorageLayer,
+} from 'effect-cloudflare-r2-layer';
+
+const task = pipe(
+  Effect.gen(function* () {
+    const result = yield* FileStorageLayer.createBucket({
+      Bucket: 'test',
+      CreateBucketConfiguration: {
+        Bucket: {
+          Type: 'Directory',
+          DataRedundancy: 'SingleAvailabilityZone',
+        },
+      },
+    });
+
+    // ...
+  }),
+  Effect.provide(CloudflareR2StorageLayerLive)
+);
+```
 
 ### 🔶 `uploadFile`
 
@@ -80,15 +120,12 @@ interface UploadFileInput<TBucket extends string> {
   contentType: string | undefined;
 }
 
-type uploadFile = <TBucket extends string>({
-  bucketName,
-  documentKey,
-  data,
-  contentType,
-}: UploadFileInput<TBucket>) => Effect.Effect<
+type uploadFile = <TBucket extends string>(
+  input: UploadFileInput<TBucket>
+) => Effect.Effect<
   PutObjectCommandOutput,
-  FileStorageError | ConfigError,
-  never
+  FileStorageError | ConfigError.ConfigError,
+  FileStorage
 >;
 ```
 
@@ -168,15 +205,17 @@ const task = pipe(
 Fetches a file, expecting a content extending `Record<string, unknown>`.
 
 ```typescript
-readAsJson: <TBucket extends string, TShape extends Record<string, unknown>>(
-  bucketName: TBucket,
-  documentKey: string
-) =>
-  Effect.Effect<
-    TShape,
-    ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
-  >;
+type readAsJson = <
+  TBucket extends string,
+  TShape extends Record<string, unknown>
+>(
+  bucket: TBucket,
+  fileName: string
+) => Effect.Effect<
+  TShape,
+  HttpClientError | FileStorageError | ConfigError.ConfigError,
+  Scope | HttpClient.Service | FileStorage
+>;
 ```
 
 #### 🧿 Example
@@ -226,7 +265,7 @@ readAsText: <TBucket extends string>(
   Effect.Effect<
     string,
     ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
+    Scope | HttpClient.Service | FileStorage
   >;
 ```
 
@@ -272,7 +311,7 @@ readAsRawBinary: <TBucket extends string>(
   Effect.Effect<
     ArrayBuffer,
     ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
+    Scope | HttpClient.Service | FileStorage
   >;
 ```
 
