@@ -1,19 +1,22 @@
 import { Layer } from 'effect';
 
-import { FileStorageLayerContext } from '../layer/file-storage.layer.js';
 import {
+  bucketInfos,
   createBucket,
   getFileUrl,
   readAsJson,
   readAsRawBinary,
   readAsText,
   uploadFile,
-} from './implementations/index.js';
+} from '@implementation';
+
+import { FileStorageLayerContext } from '../layer/file-storage.layer.js';
 
 export const CloudflareR2StorageLayerLive = Layer.succeed(
   FileStorageLayerContext,
   FileStorageLayerContext.of({
     createBucket,
+    bucketInfos,
     getFileUrl,
     uploadFile,
     readAsText,
