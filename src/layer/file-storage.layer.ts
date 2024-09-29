@@ -2,7 +2,11 @@ import { HttpClientError } from '@effect/platform/HttpClientError';
 import type { ConfigError, Effect } from 'effect';
 import { Context } from 'effect';
 
-import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
+import {
+  CreateBucketCommandInput,
+  CreateBucketCommandOutput,
+  PutObjectCommandOutput,
+} from '@aws-sdk/client-s3';
 import { HttpClient } from '@effect/platform';
 import { Scope } from 'effect/Scope';
 import type { FileStorageError } from '../errors/file-storage.error.js';
@@ -10,6 +14,13 @@ import type { UploadFileInput } from '../r2/implementations/index.js';
 import { tapLayer } from './../effects/tapLayer.effect.js';
 
 export interface FileStorage {
+  readonly createBucket: (
+    input: CreateBucketCommandInput,
+  ) => Effect.Effect<
+    CreateBucketCommandOutput,
+    ConfigError.ConfigError | FileStorageError,
+    never
+  >;
   readonly getFileUrl: <TBucket extends string>(
     fileName: string,
     bucket: TBucket,
@@ -57,6 +68,10 @@ export const FileStorageLayerContext =
   Context.GenericTag<FileStorage>('file-storage');
 
 export const FileStorageLayer = {
+  createBucket: (input: CreateBucketCommandInput) =>
+    tapLayer(FileStorageLayerContext, ({ createBucket }) =>
+      createBucket(input),
+    ),
   getFileUrl: <TBucket extends string>(bucket: TBucket, fileName: string) =>
     tapLayer(FileStorageLayerContext, ({ getFileUrl }) =>
       getFileUrl(bucket, fileName),
