@@ -7,7 +7,7 @@ import {
   CreateBucketCommandOutput,
   PutObjectCommandOutput,
 } from '@aws-sdk/client-s3';
-import { HttpClient } from '@effect/platform';
+import { HttpClient } from '@effect/platform/HttpClient';
 import { Scope } from 'effect/Scope';
 
 import { tapLayer } from '@effects';
@@ -43,7 +43,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     ArrayBuffer,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
+    HttpClient<HttpClientError, Scope> | Scope
   >;
   readonly readAsJson: <
     TBucket extends string,
@@ -54,7 +54,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     TShape,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
+    HttpClient<HttpClientError, Scope> | Scope
   >;
   readonly readAsText: <TBucket extends string>(
     bucketName: TBucket,
@@ -62,7 +62,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     string,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.HttpClient.Service
+    HttpClient<HttpClientError, Scope> | Scope
   >;
   readonly uploadFile: <TBucket extends string>({
     bucketName,

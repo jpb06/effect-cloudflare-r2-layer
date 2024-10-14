@@ -1,4 +1,5 @@
 {
+	"exclude": ["./vite.config.mts"],
 	"compilerOptions": {
 		// Enable latest features
 		"lib": ["ES2023", "ES2023.Array", "DOM", "DOM.Iterable"],
@@ -41,7 +42,8 @@
 			"@effects": ["./src/effects/index.ts"],
 			"@implementation": ["./src/r2/implementations/index.ts"],
 			"@errors": ["./src/errors/index.ts"],
-			"@provider": ["./src/r2/providers/r2-file-storage.provider.ts"]
+			"@provider": ["./src/r2/providers/r2-file-storage.provider.ts"],
+			"@cool/*": ["./src/*"]
 		}
 	}
 }
