@@ -1,17 +1,18 @@
 {
 	"extends": "./tsconfig",
 	"compilerOptions": {
-		"plugins": [
-			{ "transform": "typescript-transform-paths" },
-			{ "transform": "typescript-transform-paths", "afterDeclarations": true }
-		],
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"outDir": "dist/esm",
-		"declarationDir": "dist/dts/esm",
+		"declarationDir": "dist/dts",
 		"noEmit": false,
 		"declaration": true,
 		"sourceMap": true
 	},
-	"exclude": ["./src/tests/**/*", "./src/**/*.test.ts", "./src/temp"]
+	"exclude": [
+		"./src/tests/**/*",
+		"./src/**/*.test.ts",
+		"./src/temp",
+		"./vite.config.mts"
+	]
 }

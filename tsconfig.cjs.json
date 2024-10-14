@@ -1,17 +1,17 @@
 {
 	"extends": "./tsconfig",
 	"compilerOptions": {
-		"plugins": [
-			{ "transform": "typescript-transform-paths" },
-			{ "transform": "typescript-transform-paths", "afterDeclarations": true }
-		],
 		"module": "CommonJS",
 		"moduleResolution": "Node",
 		"outDir": "dist/cjs",
-		"declarationDir": "dist/dts/cjs",
 		"noEmit": false,
-		"declaration": true,
+		"declaration": false,
 		"sourceMap": true
 	},
-	"exclude": ["./src/tests/**/*", "./src/**/*.test.ts", "./src/temp"]
+	"exclude": [
+		"./src/tests/**/*",
+		"./src/**/*.test.ts",
+		"./src/temp",
+		"./vite.config.mts"
+	]
 }
