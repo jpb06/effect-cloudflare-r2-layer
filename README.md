@@ -259,7 +259,7 @@ type readAsJson = <
 ) => Effect.Effect<
   TShape,
   HttpClientError | FileStorageError | ConfigError.ConfigError,
-  Scope | HttpClient.Service | FileStorage
+  FileStorage | Scope | HttpClient<HttpClientError, Scope>
 >;
 ```
 
@@ -310,7 +310,7 @@ readAsText: <TBucket extends string>(
   Effect.Effect<
     string,
     ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.Service | FileStorage
+    FileStorage | Scope | HttpClient<HttpClientError, Scope>
   >;
 ```
 
@@ -356,7 +356,7 @@ readAsRawBinary: <TBucket extends string>(
   Effect.Effect<
     ArrayBuffer,
     ConfigError | HttpClientError | FileStorageError,
-    Scope | HttpClient.Service | FileStorage
+    FileStorage | Scope | HttpClient<HttpClientError, Scope>
   >;
 ```
 
