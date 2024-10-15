@@ -42,8 +42,7 @@
 			"@effects": ["./src/effects/index.ts"],
 			"@implementation": ["./src/r2/implementations/index.ts"],
 			"@errors": ["./src/errors/index.ts"],
-			"@provider": ["./src/r2/providers/r2-file-storage.provider.ts"],
-			"@cool/*": ["./src/*"]
+			"@provider": ["./src/r2/providers/r2-file-storage.provider.ts"]
 		}
 	}
 }
