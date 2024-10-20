@@ -1,6 +1,6 @@
 {
   "name": "effect-cloudflare-r2-layer",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "author": "jpb06 <jp.bois.06@outlook.fr>",
   "description": "An effect layer to interact with Cloudware R2 storage service",
   "keywords": [
