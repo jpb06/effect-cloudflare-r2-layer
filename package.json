@@ -46,11 +46,11 @@
     "sync-icons": "bun generateReadmeIcons -h 50"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.677.0",
-    "@aws-sdk/s3-request-presigner": "^3.677.0",
-    "@effect/platform": "^0.69.5",
+    "@aws-sdk/client-s3": "^3.679.0",
+    "@aws-sdk/s3-request-presigner": "^3.679.0",
+    "@effect/platform": "^0.69.9",
     "dotenv": "^16.4.5",
-    "effect": "^3.10.1"
+    "effect": "^3.10.4"
   },
   "peerDependencies": {
     "typescript": "5.6.3"
@@ -63,7 +63,7 @@
     "comment-json": "^4.2.5",
     "copyfiles": "^2.4.1",
     "del-cli": "^6.0.0",
-    "effect-errors": "^1.7.21",
+    "effect-errors": "^1.7.22",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "readme-package-icons": "^1.1.16",
