@@ -63,7 +63,7 @@
     "comment-json": "^4.2.5",
     "copyfiles": "^2.4.1",
     "del-cli": "^6.0.0",
-    "effect-errors": "^1.7.21",
+    "effect-errors": "^1.7.22",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "readme-package-icons": "^1.1.16",
