@@ -23,7 +23,7 @@
     }
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "scripts": {
     "update-deps": "bunx npm-check-updates --root --format group -i",
