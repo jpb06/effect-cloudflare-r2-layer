@@ -48,7 +48,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.701.0",
     "@aws-sdk/s3-request-presigner": "^3.701.0",
-    "@effect/platform": "^0.69.30",
+    "@effect/platform": "^0.70.0",
     "dotenv": "^16.4.5",
     "effect": "^3.10.19"
   },
