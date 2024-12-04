@@ -46,11 +46,11 @@
     "sync-icons": "bun generateReadmeIcons -h 50"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.701.0",
-    "@aws-sdk/s3-request-presigner": "^3.701.0",
-    "@effect/platform": "^0.70.0",
-    "dotenv": "^16.4.5",
-    "effect": "^3.10.19"
+    "@aws-sdk/client-s3": "^3.705.0",
+    "@aws-sdk/s3-request-presigner": "^3.705.0",
+    "@effect/platform": "^0.70.3",
+    "dotenv": "^16.4.7",
+    "effect": "^3.11.2"
   },
   "peerDependencies": {
     "typescript": "5.7.2"
@@ -59,18 +59,18 @@
     "@biomejs/biome": "^1.9.4",
     "@types/bun": "latest",
     "@types/fs-extra": "^11.0.4",
-    "@vitest/coverage-v8": "^2.1.6",
+    "@vitest/coverage-v8": "^2.1.8",
     "comment-json": "^4.2.5",
     "copyfiles": "^2.4.1",
     "del-cli": "^6.0.0",
-    "effect-errors": "^1.7.34",
+    "effect-errors": "^1.7.38",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "readme-package-icons": "^1.1.16",
     "ts-patch": "^3.2.1",
-    "ts-paths-resolver": "1.2.3",
+    "ts-paths-resolver": "1.2.6",
     "tsx": "^4.19.2",
-    "vitest": "^2.1.6",
+    "vitest": "^2.1.8",
     "vitest-mock-extended": "^2.0.2"
   }
 }
