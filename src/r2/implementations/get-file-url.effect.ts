@@ -8,9 +8,10 @@ export const getFileUrl = <TBucket extends string>(
   bucketName: TBucket,
   documentKey: string,
 ) =>
-  Effect.withSpan('get-file-url', { attributes: { bucketName, documentKey } })(
-    pipe(
-      cloudflareR2StorageProvider,
-      Effect.flatMap((provider) => getUrl(provider, bucketName, documentKey)),
-    ),
+  pipe(
+    cloudflareR2StorageProvider,
+    Effect.flatMap((provider) => getUrl(provider, bucketName, documentKey)),
+    Effect.withSpan('get-file-url', {
+      attributes: { bucketName, documentKey },
+    }),
   );

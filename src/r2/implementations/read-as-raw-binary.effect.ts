@@ -6,11 +6,10 @@ export const readAsRawBinary = <TBucket extends string>(
   bucketName: TBucket,
   documentKey: string,
 ) =>
-  Effect.withSpan('read-as-raw-binary', {
-    attributes: { bucketName, documentKey },
-  })(
-    pipe(
-      fetchFile(bucketName, documentKey),
-      Effect.flatMap((response) => response.arrayBuffer),
-    ),
+  pipe(
+    fetchFile(bucketName, documentKey),
+    Effect.flatMap((response) => response.arrayBuffer),
+    Effect.withSpan('read-as-raw-binary', {
+      attributes: { bucketName, documentKey },
+    }),
   );

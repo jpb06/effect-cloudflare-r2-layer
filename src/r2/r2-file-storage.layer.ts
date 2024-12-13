@@ -3,6 +3,7 @@ import { Layer } from 'effect';
 import {
   bucketInfos,
   createBucket,
+  deleteFile,
   getFileUrl,
   readAsJson,
   readAsRawBinary,
@@ -19,6 +20,7 @@ export const CloudflareR2StorageLayerLive = Layer.succeed(
     bucketInfos,
     getFileUrl,
     uploadFile,
+    deleteFile,
     readAsText,
     readAsJson,
     readAsRawBinary,

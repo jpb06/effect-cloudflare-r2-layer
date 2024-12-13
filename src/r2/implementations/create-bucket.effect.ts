@@ -8,14 +8,13 @@ import { FileStorageError } from '@errors';
 import { cloudflareR2StorageProvider } from '@provider';
 
 export const createBucket = (input: CreateBucketCommandInput) =>
-  Effect.withSpan('create-bucket', { attributes: { ...input } })(
-    pipe(
-      cloudflareR2StorageProvider,
-      Effect.flatMap((provider) =>
-        Effect.tryPromise({
-          try: () => provider.send(new CreateBucketCommand(input)),
-          catch: (e) => new FileStorageError({ cause: e }),
-        }),
-      ),
+  pipe(
+    cloudflareR2StorageProvider,
+    Effect.flatMap((provider) =>
+      Effect.tryPromise({
+        try: () => provider.send(new CreateBucketCommand(input)),
+        catch: (e) => new FileStorageError({ cause: e }),
+      }),
     ),
+    Effect.withSpan('create-bucket', { attributes: { ...input } }),
   );

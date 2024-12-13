@@ -1,31 +1,25 @@
-import { PutObjectCommand } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { Effect, pipe } from 'effect';
 
 import { FileStorageError } from '@errors';
 import { cloudflareR2StorageProvider } from '@provider';
 
-export interface UploadFileInput<TBucket extends string> {
+export interface DeleteFileInput<TBucket extends string> {
   bucketName: TBucket;
   documentKey: string;
-  data: Buffer;
-  contentType: string | undefined;
 }
 
-export const uploadFile = <TBucket extends string>({
+export const deleteFile = <TBucket extends string>({
   bucketName,
   documentKey,
-  data,
-  contentType,
-}: UploadFileInput<TBucket>) =>
+}: DeleteFileInput<TBucket>) =>
   pipe(
     cloudflareR2StorageProvider,
     Effect.flatMap((provider) =>
       Effect.tryPromise({
         try: () =>
           provider.send(
-            new PutObjectCommand({
-              Body: data,
-              ContentType: contentType as string,
+            new DeleteObjectCommand({
               Key: documentKey,
               Bucket: bucketName,
             }),
@@ -33,7 +27,7 @@ export const uploadFile = <TBucket extends string>({
         catch: (e) => new FileStorageError({ cause: e }),
       }),
     ),
-    Effect.withSpan('upload-file', {
-      attributes: { bucketName, documentKey, contentType },
+    Effect.withSpan('delete-file', {
+      attributes: { bucketName, documentKey },
     }),
   );

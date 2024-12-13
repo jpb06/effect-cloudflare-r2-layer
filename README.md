@@ -65,6 +65,7 @@ R2_DOCUMENTS_SECRET_ACCESS_KEY=""
 | [`createBucket`](#-createbucket)       | Create a bucket                                                                           |
 | [`bucketInfos`](#-bucketinfos)         | Get bucket infos                                                                          |
 | [`uploadFile`](#-uploadfile)           | Adds a file to the specified bucket                                                       |
+| [`deleteFile`](#-deleteFile)           | Removes a file from the specified bucket                                                  |
 | [`getFileUrl`](#-getfileurl)           | Gets a pre-signed url to fetch a ressource by its `filename` from the specified `bucket`. |
 | [`readAsJson`](#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
 | [`readAsText`](#-readastext)           | Fetches a file as a string.                                                               |
@@ -200,6 +201,57 @@ const task = pipe(
       documentKey: fileName,
       data: fileData,
       contentType: 'image/jpeg',
+    });
+
+    // ...
+  }),
+  Effect.provide(CloudflareR2StorageLayerLive);
+);
+```
+
+### 🔶 `deleteFile`
+
+Removes a file from the specified bucket.
+
+```typescript
+interface DeleteFileInput<TBucket extends string> {
+  bucketName: TBucket;
+  key: string;
+}
+
+type deleteFile = <TBucket extends string>(
+  input: DeleteFileInput<TBucket>
+) => Effect.Effect<
+  DeleteObjectCommandOutput,
+  FileStorageError | ConfigError.ConfigError,
+  FileStorage
+>;
+```
+
+#### 🧿 Example
+
+```typescript
+import { Effect, pipe } from 'effect';
+import {
+  CloudflareR2StorageLayerLive,
+  FileStorageLayer,
+} from 'effect-cloudflare-r2-layer';
+import { readFile } from 'fs-extra';
+
+type Buckets = 'assets' | 'config';
+const fileName = 'yolo.jpg';
+const filePath = './assets/yolo.jpg';
+
+const task = pipe(
+  Effect.gen(function* () {
+    const fileData = yield* Effect.tryPromise({
+      try: () => readFile(filePath),
+      catch: (e) => new FsError({ cause: e  }),
+    });
+
+    yield* FileStorageLayer.deleteFile<Buckets>({
+      bucketName: 'assets',
+      documentKey: fileName,
     });
 
     // ...
