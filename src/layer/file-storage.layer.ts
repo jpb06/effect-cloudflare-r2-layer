@@ -1,20 +1,21 @@
-import { HttpClientError } from '@effect/platform/HttpClientError';
-import type { ConfigError, Effect } from 'effect';
-import { Context } from 'effect';
-
 import {
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
+  DeleteObjectCommandOutput,
   PutObjectCommandOutput,
 } from '@aws-sdk/client-s3';
-import { HttpClient } from '@effect/platform/HttpClient';
+import { HttpClientError } from '@effect/platform/HttpClientError';
+import type { ConfigError, Effect } from 'effect';
+import { Context } from 'effect';
 import { Scope } from 'effect/Scope';
 
+import { HttpClient } from '@effect/platform/HttpClient';
 import { tapLayer } from '@effects';
 import type { BucketNotFoundError, FileStorageError } from '@errors';
 import type {
   BucketInfosInput,
   BucketInfosResult,
+  DeleteFileInput,
   UploadFileInput,
 } from '@implementation';
 
@@ -74,6 +75,14 @@ export interface FileStorage {
     ConfigError.ConfigError | FileStorageError,
     never
   >;
+  readonly deleteFile: <TBucket extends string>({
+    bucketName,
+    documentKey,
+  }: DeleteFileInput<TBucket>) => Effect.Effect<
+    DeleteObjectCommandOutput,
+    ConfigError.ConfigError | FileStorageError,
+    never
+  >;
 }
 
 export const FileStorageLayerContext =
@@ -110,4 +119,6 @@ export const FileStorageLayer = {
     ),
   uploadFile: <TBucket extends string>(input: UploadFileInput<TBucket>) =>
     tapLayer(FileStorageLayerContext, ({ uploadFile }) => uploadFile(input)),
+  deleteFile: <TBucket extends string>(input: DeleteFileInput<TBucket>) =>
+    tapLayer(FileStorageLayerContext, ({ deleteFile }) => deleteFile(input)),
 };

@@ -22,23 +22,22 @@ export type BucketInfosResult = {
 export const bucketInfos = <TBucket extends string>(
   input: BucketInfosInput<TBucket>,
 ) =>
-  Effect.withSpan('bucket-infos', { attributes: { ...input } })(
-    pipe(
-      cloudflareR2StorageProvider,
-      Effect.flatMap((provider) =>
-        Effect.tryPromise({
-          try: () => provider.send(new HeadBucketCommand(input)),
-          catch: (e) => {
-            if (hasName(e) && e.name === 'NotFound') {
-              return new BucketNotFoundError({ cause: e });
-            }
+  pipe(
+    cloudflareR2StorageProvider,
+    Effect.flatMap((provider) =>
+      Effect.tryPromise({
+        try: () => provider.send(new HeadBucketCommand(input)),
+        catch: (e) => {
+          if (hasName(e) && e.name === 'NotFound') {
+            return new BucketNotFoundError({ cause: e });
+          }
 
-            return new FileStorageError({ cause: e });
-          },
-        }),
-      ),
-      Effect.map((response) => ({
-        region: response.BucketRegion,
-      })),
+          return new FileStorageError({ cause: e });
+        },
+      }),
     ),
+    Effect.map((response) => ({
+      region: response.BucketRegion,
+    })),
+    Effect.withSpan('bucket-infos', { attributes: { ...input } }),
   );

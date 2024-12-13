@@ -5,3 +5,4 @@ export * from './upload-file.effect.js';
 export * from './read-as-json.effect.js';
 export * from './read-as-raw-binary.effect.js';
 export * from './read-as-text.effect.js';
+export * from './delete-file.effect.js';

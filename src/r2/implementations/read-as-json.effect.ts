@@ -9,12 +9,11 @@ export const readAsJson = <
   bucketName: TBucket,
   documentKey: string,
 ) =>
-  Effect.withSpan('read-as-json', {
-    attributes: { bucketName, documentKey },
-  })(
-    pipe(
-      fetchFile(bucketName, documentKey),
-      Effect.flatMap((response) => response.json),
-      Effect.map((json) => json as TShape),
-    ),
+  pipe(
+    fetchFile(bucketName, documentKey),
+    Effect.flatMap((response) => response.json),
+    Effect.map((json) => json as TShape),
+    Effect.withSpan('read-as-json', {
+      attributes: { bucketName, documentKey },
+    }),
   );
