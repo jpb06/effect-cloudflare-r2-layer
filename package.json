@@ -26,7 +26,7 @@
     "node": ">=20.x"
   },
   "scripts": {
-    "update-deps": "bunx npm-check-updates --root --format group -i",
+    "update-deps": "taze -I",
     "copy-package": "copyfiles package.json ./dist/",
     "copy-readme": "copyfiles README.md ./dist/",
     "build": "del-cli ./dist && bun build-esm && bun build-cjs",
@@ -46,11 +46,11 @@
     "sync-icons": "bun generateReadmeIcons -h 50"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.709.0",
-    "@aws-sdk/s3-request-presigner": "^3.709.0",
-    "@effect/platform": "^0.71.2",
+    "@aws-sdk/client-s3": "^3.717.0",
+    "@aws-sdk/s3-request-presigner": "^3.717.0",
+    "@effect/platform": "0.71.6",
     "dotenv": "^16.4.7",
-    "effect": "^3.11.7"
+    "effect": "3.11.9"
   },
   "peerDependencies": {
     "typescript": "5.7.2"
@@ -63,10 +63,11 @@
     "comment-json": "^4.2.5",
     "copyfiles": "^2.4.1",
     "del-cli": "^6.0.0",
-    "effect-errors": "^1.7.44",
+    "effect-errors": "1.7.46",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "readme-package-icons": "^1.1.16",
+    "taze": "^0.18.0",
     "ts-paths-resolver": "1.2.9",
     "tsx": "^4.19.2",
     "vitest": "^2.1.8",
