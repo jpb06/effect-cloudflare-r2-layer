@@ -68,7 +68,7 @@
     "glob": "^11.0.0",
     "readme-package-icons": "^1.1.16",
     "taze": "^0.18.0",
-    "ts-paths-resolver": "1.2.9",
+    "ts-paths-resolver": "1.2.11",
     "tsx": "^4.19.2",
     "vitest": "^2.1.8",
     "vitest-mock-extended": "^2.0.2"
