@@ -44,7 +44,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     ArrayBuffer,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient<HttpClientError, Scope> | Scope
+    HttpClient | Scope
   >;
   readonly readAsJson: <
     TBucket extends string,
@@ -55,7 +55,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     TShape,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient<HttpClientError, Scope> | Scope
+    HttpClient | Scope
   >;
   readonly readAsText: <TBucket extends string>(
     bucketName: TBucket,
@@ -63,7 +63,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     string,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient<HttpClientError, Scope> | Scope
+    HttpClient | Scope
   >;
   readonly uploadFile: <TBucket extends string>({
     bucketName,

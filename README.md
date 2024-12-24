@@ -1,5 +1,10 @@
 # effect-cloudflare-r2-layer
 
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://github.dev/jpb06/effect-cloudflare-r2-layer)
+![Last commit](https://img.shields.io/github/last-commit/jpb06/effect-cloudflare-r2-layer?logo=git)
+![npm downloads](https://img.shields.io/npm/dw/effect-cloudflare-r2-layer?logo=npm&logoColor=red&label=npm%20downloads)
+![npm bundle size](https://img.shields.io/bundlephobia/min/effect-cloudflare-r2-layer)
+
 An effect layer to interact with Cloudware R2 storage service.
 
 <!-- readme-package-icons start -->
