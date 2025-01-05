@@ -26,7 +26,7 @@
     "node": ">=20.x"
   },
   "scripts": {
-    "update-deps": "taze -f -I",
+    "update-deps": "bun npm-check-updates --root --format group -i",
     "copy-package": "copyfiles package.json ./dist/",
     "copy-readme": "copyfiles README.md ./dist/",
     "build": "del-cli ./dist && bun build-esm && bun build-cjs",
@@ -46,11 +46,11 @@
     "sync-icons": "bun generateReadmeIcons -h 50"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.717.0",
-    "@aws-sdk/s3-request-presigner": "3.717.0",
-    "@effect/platform": "0.72.0",
+    "@aws-sdk/client-s3": "3.722.0",
+    "@aws-sdk/s3-request-presigner": "3.722.0",
+    "@effect/platform": "0.72.1",
     "dotenv": "16.4.7",
-    "effect": "3.12.0"
+    "effect": "3.12.1"
   },
   "peerDependencies": {
     "typescript": "5.7.2"
@@ -66,9 +66,9 @@
     "effect-errors": "1.8.7",
     "fs-extra": "11.2.0",
     "glob": "11.0.0",
+    "npm-check-updates": "^17.1.13",
     "readme-package-icons": "1.1.16",
-    "taze": "0.18.0",
-    "ts-paths-resolver": "1.2.14",
+    "ts-paths-resolver": "1.2.15",
     "tsx": "4.19.2",
     "vitest": "2.1.8",
     "vitest-mock-extended": "2.0.2"
