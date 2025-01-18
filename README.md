@@ -83,7 +83,7 @@ type createBucket = (
   input: CreateBucketCommandInput
 ) => Effect.Effect<
   CreateBucketCommandOutput,
-  FileStorageError | ConfigError.ConfigError,
+  FileStorageError | ConfigError,
   FileStorage
 >;
 ```
@@ -175,7 +175,7 @@ type uploadFile = <TBucket extends string>(
   input: UploadFileInput<TBucket>
 ) => Effect.Effect<
   PutObjectCommandOutput,
-  FileStorageError | ConfigError.ConfigError,
+  FileStorageError | ConfigError,
   FileStorage
 >;
 ```
@@ -228,7 +228,7 @@ type deleteFile = <TBucket extends string>(
   input: DeleteFileInput<TBucket>
 ) => Effect.Effect<
   DeleteObjectCommandOutput,
-  FileStorageError | ConfigError.ConfigError,
+  FileStorageError | ConfigError,
   FileStorage
 >;
 ```
@@ -275,7 +275,7 @@ type getFileUrl = <TBucket extends string>(
   fileName: string,
 ) => Effect.Effect<
   string,
-  FileStorageError | ConfigError.ConfigError,
+  FileStorageError | ConfigError,
   FileStorage
 >;
 ```
@@ -315,8 +315,8 @@ type readAsJson = <
   fileName: string
 ) => Effect.Effect<
   TShape,
-  HttpClientError | FileStorageError | ConfigError.ConfigError,
-  FileStorage | Scope | HttpClient<HttpClientError, Scope>
+  HttpClientError | FileStorageError | ConfigError,
+  FileStorage | Scope | HttpClient>
 >;
 ```
 
@@ -367,7 +367,7 @@ readAsText: <TBucket extends string>(
   Effect.Effect<
     string,
     ConfigError | HttpClientError | FileStorageError,
-    FileStorage | Scope | HttpClient<HttpClientError, Scope>
+    FileStorage | Scope | HttpClient
   >;
 ```
 
@@ -413,7 +413,7 @@ readAsRawBinary: <TBucket extends string>(
   Effect.Effect<
     ArrayBuffer,
     ConfigError | HttpClientError | FileStorageError,
-    FileStorage | Scope | HttpClient<HttpClientError, Scope>
+    FileStorage | Scope | HttpClient
   >;
 ```
 
