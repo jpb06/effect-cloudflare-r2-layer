@@ -9,7 +9,7 @@ import type { ConfigError, Effect } from 'effect';
 import { Context } from 'effect';
 import { Scope } from 'effect/Scope';
 
-import { HttpClient } from '@effect/platform/HttpClient';
+import { HttpClient } from '@effect/platform';
 import { tapLayer } from '@effects';
 import type { BucketNotFoundError, FileStorageError } from '@errors';
 import type {
@@ -44,7 +44,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     ArrayBuffer,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient | Scope
+    HttpClient.HttpClient | Scope
   >;
   readonly readAsJson: <
     TBucket extends string,
@@ -55,7 +55,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     TShape,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient | Scope
+    HttpClient.HttpClient | Scope
   >;
   readonly readAsText: <TBucket extends string>(
     bucketName: TBucket,
@@ -63,7 +63,7 @@ export interface FileStorage {
   ) => Effect.Effect<
     string,
     ConfigError.ConfigError | HttpClientError | FileStorageError,
-    HttpClient | Scope
+    HttpClient.HttpClient | Scope
   >;
   readonly uploadFile: <TBucket extends string>({
     bucketName,
