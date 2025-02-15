@@ -13,12 +13,12 @@
   "exports": {
     ".": {
       "require": {
-        "default": "./cjs/index.js",
-        "types": "./dts/index.d.ts"
+        "types": "./dts/index.d.ts",
+        "default": "./cjs/index.js"
       },
       "import": {
-        "default": "./esm/index.js",
-        "types": "./dts/index.d.ts"
+        "types": "./dts/index.d.ts",
+        "default": "./esm/index.js"
       }
     }
   },
@@ -48,9 +48,9 @@
   "dependencies": {
     "@aws-sdk/client-s3": "3.749.0",
     "@aws-sdk/s3-request-presigner": "3.749.0",
-    "@effect/platform": "0.75.4",
+    "@effect/platform": "0.77.1",
     "dotenv": "16.4.7",
-    "effect": "3.12.10"
+    "effect": "3.13.1"
   },
   "peerDependencies": {
     "typescript": "5.7.3"
@@ -63,12 +63,12 @@
     "comment-json": "4.2.5",
     "copyfiles": "2.4.1",
     "del-cli": "6.0.0",
-    "effect-errors": "1.8.32",
+    "effect-errors": "1.8.36",
     "fs-extra": "11.3.0",
     "glob": "11.0.1",
     "npm-check-updates": "17.1.14",
     "readme-package-icons": "1.2.0",
-    "ts-paths-resolver": "1.2.30",
+    "ts-paths-resolver": "1.2.31",
     "tsx": "4.19.2",
     "vitest": "3.0.5",
     "vitest-mock-extended": "2.0.2"
