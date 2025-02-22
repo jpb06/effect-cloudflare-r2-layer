@@ -75,6 +75,7 @@ R2_DOCUMENTS_SECRET_ACCESS_KEY=""
 | [`readAsJson`](#-readasjson)           | Fetches a file, expecting a content extending `Record<string, unknown>`.                  |
 | [`readAsText`](#-readastext)           | Fetches a file as a string.                                                               |
 | [`readAsRawBinary`](#-readasrawbinary) | Fetches a file as raw binary (ArrayBuffer).                                               |
+| [`fileExists`](#-fileexists)           | Checks if a file exists in a bucket                                                       |
 
 ### 🔶 `createBucket`
 
@@ -456,5 +457,40 @@ const task = pipe(
       Layer.mergeAll(CloudflareR2StorageLayerLive, FetchHttpClient.layer)
     )
   )
+);
+```
+
+### 🔶 `fileExists`
+
+```typescript
+type fileExists = <TBucket extends string>(
+  bucket: TBucket,
+  fileName: string
+) => Effect.Effect<boolean, ConfigError | FileStorageError, FileStorage>;
+```
+
+#### 🧿 Example
+
+```typescript
+import { Effect, pipe } from 'effect';
+import {
+  CloudflareR2StorageLayerLive,
+  FileStorageLayer,
+} from 'effect-cloudflare-r2-layer';
+
+type Bucket = 'assets' | 'config';
+
+const filePath = 'my-app/config.json';
+
+const task = pipe(
+  Effect.gen(function* () {
+    const exists = yield* FileStorageLayer.fileExists<Bucket>(
+      'config',
+      filePath
+    );
+
+    // ...
+  }),
+  Effect.provide(CloudflareR2StorageLayerLive)
 );
 ```
