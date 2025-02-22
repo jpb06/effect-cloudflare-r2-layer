@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.0.63...v1.1.0) (2025-02-22)
+
+
+### Features
+
+* fileExists function ([#82](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/82)) ([6cc1b7f](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/6cc1b7f5a09b695c13d954fb03b866e6ab17a02f))
+
 ## [1.0.63](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.0.62...v1.0.63) (2025-02-19)
 
 
