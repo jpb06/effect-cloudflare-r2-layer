@@ -83,6 +83,10 @@ export interface FileStorage {
     ConfigError.ConfigError | FileStorageError,
     never
   >;
+  readonly fileExists: <TBucket extends string>(
+    bucketName: TBucket,
+    documentKey: string,
+  ) => Effect.Effect<boolean, ConfigError.ConfigError | FileStorageError>;
 }
 
 export const FileStorageLayerContext =
@@ -121,4 +125,8 @@ export const FileStorageLayer = {
     tapLayer(FileStorageLayerContext, ({ uploadFile }) => uploadFile(input)),
   deleteFile: <TBucket extends string>(input: DeleteFileInput<TBucket>) =>
     tapLayer(FileStorageLayerContext, ({ deleteFile }) => deleteFile(input)),
+  fileExists: <TBucket extends string>(bucket: TBucket, fileName: string) =>
+    tapLayer(FileStorageLayerContext, ({ fileExists }) =>
+      fileExists(bucket, fileName),
+    ),
 };

@@ -4,6 +4,7 @@ import {
   bucketInfos,
   createBucket,
   deleteFile,
+  fileExists,
   getFileUrl,
   readAsJson,
   readAsRawBinary,
@@ -24,5 +25,6 @@ export const CloudflareR2StorageLayerLive = Layer.succeed(
     readAsText,
     readAsJson,
     readAsRawBinary,
+    fileExists,
   }),
 );
