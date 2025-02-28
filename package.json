@@ -50,7 +50,7 @@
     "@aws-sdk/s3-request-presigner": "3.750.0",
     "@effect/platform": "0.77.2",
     "dotenv": "16.4.7",
-    "effect": "3.13.2"
+    "effect": "3.13.4"
   },
   "peerDependencies": {
     "typescript": "5.7.3"
