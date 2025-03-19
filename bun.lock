@@ -6,7 +6,7 @@
       "dependencies": {
         "@aws-sdk/client-s3": "3.758.0",
         "@aws-sdk/s3-request-presigner": "3.758.0",
-        "@effect/platform": "0.79.2",
+        "@effect/platform": "0.79.3",
         "dotenv": "16.4.7",
         "effect": "3.13.12",
       },
@@ -144,7 +144,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@1.9.4", "", { "os": "win32", "cpu": "x64" }, "sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA=="],
 
-    "@effect/platform": ["@effect/platform@0.79.2", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.13.11" } }, "sha512-0GXLenj1Auwx5fDqwJrKGFiEXroouUcwTmQG1Cbld64AFPhxCYXFuKkSrC3g4m/MGDugMYb1D4TNBe0hJ1rzWg=="],
+    "@effect/platform": ["@effect/platform@0.79.3", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.13.12" } }, "sha512-oABDV66SmrUVP+xWL/a+WPvz53m8ckNkv9Cgk09rhOXgzL3eusjDj8VFaIzz0OPgInjRTRoMVemILW0voTYjYA=="],
 
     "@effect/platform-node": ["@effect/platform-node@0.75.1", "", { "dependencies": { "@effect/platform-node-shared": "^0.29.1", "mime": "^3.0.0", "undici": "^7.1.0", "ws": "^8.18.0" }, "peerDependencies": { "@effect/platform": "^0.79.1", "effect": "^3.13.10" } }, "sha512-p+H239RIDpOI8Y0JRt7MW9pqhNZeuJ48C12NMWLv0fUwtQhMf5t6MDcCVNpLpxwcTojbAmVfaHO8Olj4nLGxqA=="],
 
