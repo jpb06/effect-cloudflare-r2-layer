@@ -63,7 +63,7 @@
     "comment-json": "4.2.5",
     "copyfiles": "2.4.1",
     "del-cli": "6.0.0",
-    "effect-errors": "1.8.48",
+    "effect-errors": "1.8.49",
     "fs-extra": "11.3.0",
     "glob": "11.0.1",
     "npm-check-updates": "17.1.16",
