@@ -46,8 +46,8 @@
     "sync-icons": "bun generateReadmeIcons -h 50"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.779.0",
-    "@aws-sdk/s3-request-presigner": "3.779.0",
+    "@aws-sdk/client-s3": "3.782.0",
+    "@aws-sdk/s3-request-presigner": "3.782.0",
     "@effect/platform": "0.80.5",
     "dotenv": "16.4.7"
   },
