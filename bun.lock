@@ -28,7 +28,7 @@
         "vitest-mock-extended": "3.0.1",
       },
       "peerDependencies": {
-        "effect": "3.14.5",
+        "effect": "3.14.6",
         "typescript": "5.8.2",
       },
     },
