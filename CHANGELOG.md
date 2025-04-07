@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.10](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.9...v1.1.10) (2025-04-07)
+
+
+### Bug Fixes
+
+* lockfile ([#144](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/144)) ([c88ae71](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/c88ae71a433022eea4451e21ea74d37c27571940))
+
 ## [1.1.9](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.8...v1.1.9) (2025-04-07)
 
 
