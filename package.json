@@ -71,6 +71,6 @@
     "ts-paths-resolver": "1.2.47",
     "tsx": "4.19.3",
     "vitest": "3.1.1",
-    "vitest-mock-extended": "3.0.1"
+    "vitest-mock-extended": "3.1.0"
   }
 }
