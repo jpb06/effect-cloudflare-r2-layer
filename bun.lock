@@ -6,7 +6,7 @@
       "dependencies": {
         "@aws-sdk/client-s3": "3.782.0",
         "@aws-sdk/s3-request-presigner": "3.782.0",
-        "@effect/platform": "0.80.7",
+        "@effect/platform": "0.80.6",
         "dotenv": "16.4.7",
       },
       "devDependencies": {
@@ -20,7 +20,7 @@
         "effect-errors": "1.8.55",
         "fs-extra": "11.3.0",
         "glob": "11.0.1",
-        "npm-check-updates": "17.1.16",
+        "npm-check-updates": "17.1.18",
         "readme-package-icons": "1.2.0",
         "ts-paths-resolver": "1.2.47",
         "tsx": "4.19.3",
@@ -148,7 +148,7 @@
 
     "@effect/experimental": ["@effect/experimental@0.44.6", "", { "dependencies": { "uuid": "^11.0.3" }, "peerDependencies": { "@effect/platform": "^0.80.6", "effect": "^3.14.6", "ioredis": "^5", "lmdb": "^3" }, "optionalPeers": ["ioredis", "lmdb"] }, "sha512-1xbExr01HbyCoeSiFUGEmRrRMofjdrZsEM843VswhUdtJWpgT1E5xxfcK5TY4krxzfse9bLB8yQTD7eZGNO5ng=="],
 
-    "@effect/platform": ["@effect/platform@0.80.7", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "msgpackr": "^1.11.2", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.14.7" } }, "sha512-hWgZJz4rWn6y/HgR91gtGUIXr0oqICDV5NlAdp6MjR20y805U1DeiI3ZkDkzgmEbIR/5ciz8nmPf+a08PVyLPg=="],
+    "@effect/platform": ["@effect/platform@0.80.6", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "msgpackr": "^1.11.2", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.14.6" } }, "sha512-Q40WOVDCyZynWvXeIvp2Na1h2bEs6o7esODvJhSkPZhWRPiVdkW1j5hPR7No9q2KuOLbNtrqV/pEZeP2BnIoKg=="],
 
     "@effect/platform-node": ["@effect/platform-node@0.76.12", "", { "dependencies": { "@effect/platform-node-shared": "^0.30.12", "mime": "^3.0.0", "undici": "^7.1.0", "ws": "^8.18.0" }, "peerDependencies": { "@effect/cluster": "^0.29.12", "@effect/platform": "^0.80.7", "@effect/rpc": "^0.55.10", "@effect/sql": "^0.33.7", "effect": "^3.14.7" } }, "sha512-w+n1ZAjMV17LNJrXNEudkTIF2Nx/KG7l8B6FrgLaCJkDN+SxyFvYcf7BLMbTnAo/JdJF7sKtBBDm8ni1u4gqFQ=="],
 
@@ -628,7 +628,7 @@
 
     "noms": ["noms@0.0.0", "", { "dependencies": { "inherits": "^2.0.1", "readable-stream": "~1.0.31" } }, "sha512-lNDU9VJaOPxUmXcLb+HQFeUgQQPtMI24Gt6hgfuMHRJgMRHMF/qZ4HJD3GDru4sSw9IQl2jPjAYnQrdIeLbwow=="],
 
-    "npm-check-updates": ["npm-check-updates@17.1.16", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-9nohkfjLRzLfsLVGbO34eXBejvrOOTuw5tvNammH73KEFG5XlFoi3G2TgjTExHtnrKWCbZ+mTT+dbNeSjASIPw=="],
+    "npm-check-updates": ["npm-check-updates@17.1.18", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-bkUy2g4v1i+3FeUf5fXMLbxmV95eG4/sS7lYE32GrUeVgQRfQEk39gpskksFunyaxQgTIdrvYbnuNbO/pSUSqw=="],
 
     "once": ["once@1.4.0", "", { "dependencies": { "wrappy": "1" } }, "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="],
 
@@ -796,6 +796,8 @@
 
     "copyfiles/glob": ["glob@7.2.3", "", { "dependencies": { "fs.realpath": "^1.0.0", "inflight": "^1.0.4", "inherits": "2", "minimatch": "^3.1.1", "once": "^1.3.0", "path-is-absolute": "^1.0.0" } }, "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="],
 
+    "effect-errors/@effect/platform": ["@effect/platform@0.80.7", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "msgpackr": "^1.11.2", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.14.7" } }, "sha512-hWgZJz4rWn6y/HgR91gtGUIXr0oqICDV5NlAdp6MjR20y805U1DeiI3ZkDkzgmEbIR/5ciz8nmPf+a08PVyLPg=="],
+
     "glob/minimatch": ["minimatch@10.0.1", "", { "dependencies": { "brace-expansion": "^2.0.1" } }, "sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ=="],
 
     "node-gyp-build-optional-packages/detect-libc": ["detect-libc@2.0.3", "", {}, "sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw=="],
@@ -807,8 +809,6 @@
     "test-exclude/minimatch": ["minimatch@9.0.5", "", { "dependencies": { "brace-expansion": "^2.0.1" } }, "sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow=="],
 
     "through2/readable-stream": ["readable-stream@2.3.8", "", { "dependencies": { "core-util-is": "~1.0.0", "inherits": "~2.0.3", "isarray": "~1.0.0", "process-nextick-args": "~2.0.0", "safe-buffer": "~5.1.1", "string_decoder": "~1.1.1", "util-deprecate": "~1.0.1" } }, "sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA=="],
-
-    "ts-paths-resolver/@effect/platform": ["@effect/platform@0.80.6", "", { "dependencies": { "find-my-way-ts": "^0.1.5", "msgpackr": "^1.11.2", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.14.6" } }, "sha512-Q40WOVDCyZynWvXeIvp2Na1h2bEs6o7esODvJhSkPZhWRPiVdkW1j5hPR7No9q2KuOLbNtrqV/pEZeP2BnIoKg=="],
 
     "ts-paths-resolver/@effect/platform-node": ["@effect/platform-node@0.76.11", "", { "dependencies": { "@effect/platform-node-shared": "^0.30.11", "mime": "^3.0.0", "undici": "^7.1.0", "ws": "^8.18.0" }, "peerDependencies": { "@effect/cluster": "^0.29.11", "@effect/platform": "^0.80.6", "@effect/rpc": "^0.55.9", "@effect/sql": "^0.33.6", "effect": "^3.14.6" } }, "sha512-ffq97jFEUEKI5NQ9/y7dUCHxxryId9od8hGk+4TccqHB4KGe/SwcNHC33Wt79iztqnEeWAkW8DmVo5eBh7HGVQ=="],
 
