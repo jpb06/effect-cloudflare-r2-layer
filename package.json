@@ -59,7 +59,7 @@
     "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
     "@types/fs-extra": "11.0.4",
-    "@vitest/coverage-v8": "3.1.1",
+    "@vitest/coverage-v8": "3.1.2",
     "comment-json": "4.2.5",
     "copyfiles": "2.4.1",
     "del-cli": "6.0.0",
@@ -70,7 +70,7 @@
     "readme-package-icons": "1.2.1",
     "ts-paths-resolver": "1.2.53",
     "tsx": "4.19.3",
-    "vitest": "3.1.1",
+    "vitest": "3.1.2",
     "vitest-mock-extended": "3.1.0"
   }
 }
