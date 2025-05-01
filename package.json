@@ -52,7 +52,7 @@
     "dotenv": "16.5.0"
   },
   "peerDependencies": {
-    "effect": "3.14.15",
+    "effect": "3.14.18",
     "typescript": "5.8.3"
   },
   "devDependencies": {
