@@ -22,7 +22,7 @@
         "glob": "11.0.2",
         "npm-check-updates": "18.0.1",
         "readme-package-icons": "1.2.1",
-        "ts-paths-resolver": "1.2.58",
+        "ts-paths-resolver": "1.2.59",
         "tsx": "4.19.4",
         "vitest": "3.1.2",
         "vitest-mock-extended": "3.1.0",
@@ -730,7 +730,7 @@
 
     "ts-essentials": ["ts-essentials@10.0.4", "", { "peerDependencies": { "typescript": ">=4.5.0" }, "optionalPeers": ["typescript"] }, "sha512-lwYdz28+S4nicm+jFi6V58LaAIpxzhg9rLdgNC1VsdP/xiFBseGhF1M/shwCk6zMmwahBZdXcl34LVHrEang3A=="],
 
-    "ts-paths-resolver": ["ts-paths-resolver@1.2.58", "", { "dependencies": { "comment-json": "4.2.5", "effect-errors": "1.10.3", "glob": "11.0.2", "picocolors": "1.1.1", "yargs": "17.7.2" }, "peerDependencies": { "@effect/cluster": "0.30.x", "@effect/platform": "0.80.x", "@effect/platform-node": "0.77.x", "@effect/rpc": "0.56.x", "effect": "3.14.14", "typescript": "5.8.3" }, "bin": { "resolve-ts-paths": "cjs/cli/resolve-ts-paths.cli.js", "resolve-ts-paths-esm": "esm/cli/resolve-ts-paths.cli.js" } }, "sha512-FbZCvR5f9eqg165PocGtBi+GIfLkMNGV9YojMpfHWFozy1bqxfQtXoLzlVstviD8bzhzvLufKIkwRjrTX0LA+A=="],
+    "ts-paths-resolver": ["ts-paths-resolver@1.2.59", "", { "dependencies": { "comment-json": "4.2.5", "effect-errors": "1.10.3", "glob": "11.0.2", "picocolors": "1.1.1", "yargs": "17.7.2" }, "peerDependencies": { "@effect/cluster": "0.30.x", "@effect/platform": "0.80.x", "@effect/platform-node": "0.77.x", "@effect/rpc": "0.56.x", "effect": "3.14.16", "typescript": "5.8.3" }, "bin": { "resolve-ts-paths": "cjs/cli/resolve-ts-paths.cli.js", "resolve-ts-paths-esm": "esm/cli/resolve-ts-paths.cli.js" } }, "sha512-HtLPJhqzaVIxctXM8//OyMjdG03IXKufkkjkCbxoiAubXczFuyNXnVcESc9lrfaEwcwFeaXUWloA1kXnhOhAgw=="],
 
     "tslib": ["tslib@2.8.1", "", {}, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
