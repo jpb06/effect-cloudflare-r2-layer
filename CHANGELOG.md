@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.20](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.19...v1.1.20) (2025-05-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency effect to v3.14.19 ([#201](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/201)) ([2b912b8](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/2b912b83e66319f94e1864d12f22fe4647f09cce))
+
 ## [1.1.19](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.18...v1.1.19) (2025-05-04)
 
 
