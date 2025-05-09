@@ -68,7 +68,7 @@
     "glob": "11.0.2",
     "npm-check-updates": "18.0.1",
     "readme-package-icons": "1.2.1",
-    "ts-paths-resolver": "1.2.60",
+    "ts-paths-resolver": "1.2.61",
     "tsx": "4.19.4",
     "vitest": "3.1.3",
     "vitest-mock-extended": "3.1.0"
