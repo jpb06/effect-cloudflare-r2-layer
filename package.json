@@ -6,6 +6,10 @@
   "keywords": [
     "effect"
   ],
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/jpb06/effect-cloudflare-r2-layer.git"
+  },
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "types": "./dts/index.d.ts",
