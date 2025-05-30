@@ -6,7 +6,7 @@
   "keywords": [
     "effect"
   ],
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/jpb06/effect-cloudflare-r2-layer.git"
   },
