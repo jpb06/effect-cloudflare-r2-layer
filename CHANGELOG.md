@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.30](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.29...v1.1.30) (2025-05-30)
+
+
+### Bug Fixes
+
+* failing ts-paths-resolver version bump ([#240](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/240)) ([83f8bb6](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/83f8bb6349beb4325f81fd0057add836d9163972))
+
 ## [1.1.29](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.28...v1.1.29) (2025-05-30)
 
 
