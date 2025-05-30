@@ -1,6 +1,6 @@
 {
   "name": "effect-cloudflare-r2-layer",
-  "version": "1.1.28",
+  "version": "1.1.29",
   "author": "jpb06 <jp.bois.06@outlook.fr>",
   "description": "An effect layer to interact with Cloudware R2 storage service",
   "keywords": [
@@ -71,7 +71,7 @@
     "glob": "11.0.2",
     "npm-check-updates": "18.0.1",
     "readme-package-icons": "1.2.1",
-    "ts-paths-resolver": "1.2.64",
+    "ts-paths-resolver": "1.2.63",
     "tsx": "4.19.4",
     "typescript": "5.8.3",
     "vitest": "3.1.4",
