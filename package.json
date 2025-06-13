@@ -68,7 +68,7 @@
     "del-cli": "6.0.0",
     "effect-errors": "1.10.11",
     "fs-extra": "11.3.0",
-    "glob": "11.0.2",
+    "glob": "11.0.3",
     "npm-check-updates": "18.0.1",
     "readme-package-icons": "1.2.1",
     "ts-paths-resolver": "1.2.64",
