@@ -71,7 +71,7 @@
     "glob": "11.0.3",
     "npm-check-updates": "18.0.1",
     "readme-package-icons": "1.2.1",
-    "ts-paths-resolver": "1.2.64",
+    "ts-paths-resolver": "1.2.65",
     "tsx": "4.20.3",
     "typescript": "5.8.3",
     "vitest": "3.2.3",
