@@ -1,15 +1,15 @@
-import {
+import type {
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
   DeleteObjectCommandOutput,
   PutObjectCommandOutput,
 } from '@aws-sdk/client-s3';
-import { HttpClientError } from '@effect/platform/HttpClientError';
+import type { HttpClient } from '@effect/platform';
+import type { HttpClientError } from '@effect/platform/HttpClientError';
 import type { ConfigError, Effect } from 'effect';
 import { Context } from 'effect';
-import { Scope } from 'effect/Scope';
+import type { Scope } from 'effect/Scope';
 
-import { HttpClient } from '@effect/platform';
 import { tapLayer } from '@effects';
 import type { BucketNotFoundError, FileStorageError } from '@errors';
 import type {

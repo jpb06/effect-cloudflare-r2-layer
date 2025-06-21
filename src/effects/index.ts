@@ -1,1 +1,1 @@
-export * from './tapLayer.effect.js';
+export * from './tap-layer.effect.js';

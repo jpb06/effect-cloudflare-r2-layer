@@ -1,7 +1,5 @@
-import {
-  CreateBucketCommand,
-  CreateBucketCommandInput,
-} from '@aws-sdk/client-s3';
+import type { CreateBucketCommandInput } from '@aws-sdk/client-s3';
+import { CreateBucketCommand } from '@aws-sdk/client-s3';
 import { Effect, pipe } from 'effect';
 
 import { FileStorageError } from '@errors';
