@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.41](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.40...v1.1.41) (2025-07-05)
+
+
+### Bug Fixes
+
+* readme icons ([#280](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/280)) ([212c772](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/212c77202f147224cab410136e3bad39c7487d15))
+
 ## [1.1.40](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.39...v1.1.40) (2025-07-04)
 
 
