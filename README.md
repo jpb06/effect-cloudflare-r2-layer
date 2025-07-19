@@ -242,7 +242,6 @@ import {
   CloudflareR2StorageLayerLive,
   FileStorageLayer,
 } from 'effect-cloudflare-r2-layer';
-import { readFile } from 'fs-extra';
 
 type Buckets = 'assets' | 'config';
 const fileName = 'yolo.jpg';
@@ -250,11 +249,6 @@ const filePath = './assets/yolo.jpg';
 
 const task = pipe(
   Effect.gen(function* () {
-    const fileData = yield* Effect.tryPromise({
-      try: () => readFile(filePath),
-      catch: (e) => new FsError({ cause: e  }),
-    });
-
     yield* FileStorageLayer.deleteFile<Buckets>({
       bucketName: 'assets',
       documentKey: fileName,
@@ -422,17 +416,12 @@ readAsRawBinary: <TBucket extends string>(
 
 ```typescript
 import { FetchHttpClient } from '@effect/platform';
+import { FileSystem } from '@effect/platform/FileSystem';
 import { Effect, Layer, pipe } from 'effect';
 import {
   CloudflareR2StorageLayerLive,
   FileStorageLayer,
 } from 'effect-cloudflare-r2-layer';
-import fs from 'fs-extra';
-import { TaggedError } from 'effect/Data';
-
-export class FsError extends TaggedError('FsError')<{
-  cause?: unknown;
-}> {}
 
 type Buckets = 'assets' | 'config';
 
@@ -444,13 +433,9 @@ const task = pipe(
         'yolo.jpg'
       );
 
-      yield* Effect.tryPromise({
-        try: () =>
-          fs.writeFile('./file.jpg', Buffer.from(buffer), {
-            encoding: 'utf-8',
-          }),
-        catch: (e) => new FsError({ cause: e }),
-      });
+      const fs = yield* FileSystem;
+      const buffer = Buffer.from(data);
+      yield* fs.writeFile('./file.jpg', buffer);
     }),
     Effect.scoped,
     Effect.provide(
