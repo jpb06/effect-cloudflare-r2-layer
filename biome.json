@@ -247,7 +247,7 @@
                 "!@provider"
               ],
               ":BLANK_LINE:",
-              ["!@effects", "!@implementation", "!@errors", "!@provider"],
+              ["@effects", "@implementation", "@errors", "@provider"],
               ":BLANK_LINE:",
               ":PATH:"
             ]
