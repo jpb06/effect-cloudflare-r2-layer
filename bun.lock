@@ -15,7 +15,7 @@
         "copyfiles": "2.4.1",
         "del-cli": "6.0.0",
         "effect-errors": "1.10.14",
-        "npm-check-updates": "18.0.1",
+        "npm-check-updates": "18.0.2",
         "readme-package-icons": "1.2.2",
         "ts-paths-resolver": "1.2.68",
         "tsx": "4.20.3",
@@ -638,7 +638,7 @@
 
     "noms": ["noms@0.0.0", "", { "dependencies": { "inherits": "^2.0.1", "readable-stream": "~1.0.31" } }, "sha512-lNDU9VJaOPxUmXcLb+HQFeUgQQPtMI24Gt6hgfuMHRJgMRHMF/qZ4HJD3GDru4sSw9IQl2jPjAYnQrdIeLbwow=="],
 
-    "npm-check-updates": ["npm-check-updates@18.0.1", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-MO7mLp/8nm6kZNLLyPgz4gHmr9tLoU+pWPLdXuGAx+oZydBHkHWN0ibTonsrfwC2WEQNIQxuZagYwB67JQpAuw=="],
+    "npm-check-updates": ["npm-check-updates@18.0.2", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-9uVFZUCg5oDOcbzdsrJ4BEvq2gikd23tXuF5mqpl4mxVl051lzB00Xmd7ZVjVWY3XNUF3BQKWlN/qmyD8/bwrA=="],
 
     "once": ["once@1.4.0", "", { "dependencies": { "wrappy": "1" } }, "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="],
 
