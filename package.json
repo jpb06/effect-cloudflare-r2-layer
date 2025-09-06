@@ -68,7 +68,7 @@
     "npm-check-updates": "18.0.2",
     "readme-package-icons": "1.2.2",
     "ts-paths-resolver": "1.2.68",
-    "tsx": "4.20.3",
+    "tsx": "4.20.5",
     "typescript": "5.9.2",
     "vitest": "3.2.4",
     "vitest-mock-extended": "3.1.0"
