@@ -184,12 +184,13 @@ type uploadFile = <TBucket extends string>(
 #### 🧿 Example
 
 ```typescript
-import { Effect, pipe } from 'effect';
+import { FileSystem } from '@effect/platform/FileSystem';
+import { NodeFileSystem } from '@effect/platform-node';
+import { Effect, Layer, pipe } from 'effect';
 import {
   CloudflareR2StorageLayerLive,
   FileStorageLayer,
 } from 'effect-cloudflare-r2-layer';
-import { readFile } from 'fs-extra';
 
 type Buckets = 'assets' | 'config';
 const fileName = 'yolo.jpg';
@@ -197,21 +198,21 @@ const filePath = './assets/yolo.jpg';
 
 const task = pipe(
   Effect.gen(function* () {
-    const fileData = yield* Effect.tryPromise({
-      try: () => readFile(filePath),
-      catch: (e) => new FsError({ cause: e  }),
-    });
+    const fs = yield* FileSystem;
+    const fileData = yield* fs.readFile(filePath);
 
     yield* FileStorageLayer.uploadFile<Buckets>({
       bucketName: 'assets',
       documentKey: fileName,
-      data: fileData,
+      data: Buffer.from(fileData),
       contentType: 'image/jpeg',
     });
 
     // ...
   }),
-  Effect.provide(CloudflareR2StorageLayerLive);
+  Effect.provide(
+    Layer.mergeAll(CloudflareR2StorageLayerLive, NodeFileSystem.layer)
+  )
 );
 ```
 
