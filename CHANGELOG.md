@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.46](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.45...v1.1.46) (2025-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update aws-sdk-js-v3 monorepo to v3.884.0 ([#312](https://github.com/jpb06/effect-cloudflare-r2-layer/issues/312)) ([ba0640b](https://github.com/jpb06/effect-cloudflare-r2-layer/commit/ba0640b9b1010513245cf02c5bee2b4731aaf6ad))
+
 ## [1.1.45](https://github.com/jpb06/effect-cloudflare-r2-layer/compare/v1.1.44...v1.1.45) (2025-09-06)
 
 
