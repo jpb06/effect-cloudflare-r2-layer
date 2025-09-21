@@ -64,7 +64,7 @@
     "@types/bun": "latest",
     "@vitest/coverage-v8": "3.2.4",
     "copyfiles": "2.4.1",
-    "del-cli": "6.0.0",
+    "del-cli": "7.0.0",
     "effect-errors": "1.10.15",
     "npm-check-updates": "18.3.0",
     "readme-package-icons": "1.2.2",
