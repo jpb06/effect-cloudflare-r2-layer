@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpb06/effect-cloudflare-r2-layer.git"
+    "url": "https://github.com/jpb06/effect-cloudflare-r2-layer"
   },
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -39,9 +39,9 @@
     "postbuild-cjs": "echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
     "postbuild-esm": "echo '{\"type\": \"module\"}' > dist/esm/package.json",
     "postbuild": "bun run copy-package && bun run copy-readme && bun run resolve-ts-paths-esm --path ./dist --tsconfigPath ./tsconfig.json --debug true",
-    "check": "biome check ./src",
-    "format": "biome format --write ./src",
-    "format-ci": "biome format ./src",
+    "check": "biome check .",
+    "format": "biome format --write ",
+    "format-ci": "biome format .",
     "lint": "biome lint ./src",
     "type-check": "tsc --noEmit",
     "test": "vitest",
