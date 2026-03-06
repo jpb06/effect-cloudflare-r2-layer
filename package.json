@@ -60,7 +60,7 @@
     "effect": "3.x"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.5",
+    "@biomejs/biome": "2.4.6",
     "@types/bun": "latest",
     "@vitest/coverage-v8": "4.0.18",
     "copyfiles": "2.4.1",
