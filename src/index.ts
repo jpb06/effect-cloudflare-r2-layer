@@ -5,9 +5,6 @@ dotenv.config();
 import type { FileStorage } from './layer/file-storage.layer.js';
 import { FileStorageLayer } from './layer/file-storage.layer.js';
 
-export { FileStorageLayer };
-export type { FileStorage };
-
 export type {
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
@@ -20,3 +17,5 @@ export type {
   BucketInfosResult,
 } from './r2/implementations/bucket-infos.effect.js';
 export * from './r2/r2-file-storage.layer.js';
+export type { FileStorage };
+export { FileStorageLayer };
